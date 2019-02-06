@@ -1,0 +1,30 @@
+apply plugin: 'kotlin-platform-native'
+
+buildscript {
+    repositories {
+        maven { url "https://dl.bintray.com/jetbrains/kotlin-native-dependencies" }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-native-gradle-plugin:$kotlin_native_version"
+    }
+}
+
+sourceSets {
+    main {
+        kotlin.srcDirs += 'src/main'
+        component {
+            baseName.set("AwesomeFramework")
+            outputKinds = [FRAMEWORK]
+            targets = ['ios_arm64', 'ios_x64']
+        }
+    }
+}
+
+// dependencies {
+//     expectedBy project(":booking-store:common")
+//     expectedBy project(':booking-store-framework:common')
+//     expectedBy project(":store-framework:common")
+//     expectedBy project(":payment:common")
+//     expectedBy project(":location:common")
+//     expectedBy project(":metering:common")
+// }

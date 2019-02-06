@@ -1,0 +1,4 @@
+include ":library:ios"
+project(":library:ios").projectDir = new File("library/ios")
+
+enableFeaturePreview('GRADLE_METADATA')
